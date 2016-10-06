@@ -7,7 +7,6 @@ import com.beust.kobalt.plugin.java.*
 val repos = repos()
 val processorJar = "net.thauvin.erik:semver:0.9.6-beta"
 
-
 val p = project {
 
     name = "kobalt-semver-test"
