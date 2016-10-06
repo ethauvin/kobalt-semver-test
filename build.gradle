@@ -1,0 +1,28 @@
+plugins {
+    id "com.ewerk.gradle.plugins.annotation-processor" version "1.0.2"
+}
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'com.example.Main'
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    // Use 'jcenter' for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+}
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+	compileOnly 'net.thauvin.erik:semver:0.9.6-beta'
+}
+
+compileJava {
+    options.compilerArgs << '-proc:none'
+}
+
+annotationProcessor {
+    library 'net.thauvin.erik:semver:0.9.6-beta'
+    processor 'net.thauvin.erik.semver.VersionProcessor'
+}
